@@ -1,8 +1,10 @@
 import datetime
 import os
 import time
-import random
-import webbrowser
+
+song = input("Path of your song : ")
+if song == FileNotFoundError:
+    print("Please retry.")
 
 def check_alarm_input(alarm_time):
 	if len(alarm_time) == 1: # [Hour] Format
@@ -43,9 +45,6 @@ if time_diff_seconds < 0:
 	time_diff_seconds += 86400
 
 print("Alarm set to go off in %s" % datetime.timedelta(seconds=time_diff_seconds))
-
 time.sleep(time_diff_seconds)
-
 print("Wake Up!")
-
-webbrowser.open(random.choice(videos))
+os.system(r"start " + song)
