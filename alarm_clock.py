@@ -4,11 +4,6 @@ import time
 import random
 import webbrowser
 
-if not os.path.isfile("youtube_alarm_videos.txt"):
-	print('Creating "youtube_alarm_videos.txt"...')
-	with open("youtube_alarm_videos.txt", "w") as alarm_file:
-		alarm_file.write("https://www.youtube.com/watch?v=anM6uIZvx74")
-
 def check_alarm_input(alarm_time):
 	if len(alarm_time) == 1: # [Hour] Format
 		if alarm_time[0] < 24 and alarm_time[0] >= 0:
@@ -52,8 +47,5 @@ print("Alarm set to go off in %s" % datetime.timedelta(seconds=time_diff_seconds
 time.sleep(time_diff_seconds)
 
 print("Wake Up!")
-
-with open("youtube_alarm_videos.txt", "r") as alarm_file:
-	videos = alarm_file.readlines()
 
 webbrowser.open(random.choice(videos))
